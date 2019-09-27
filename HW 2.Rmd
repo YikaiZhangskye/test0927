@@ -1,0 +1,82 @@
+---
+title: "HW 2 More on R and Random Number Generators"
+author: "STAT 5400"
+date: "Due: Sep 13, 2019. 9:30 AM"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+<!-- ```{r setup, include=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- ``` -->
+Submit your solutions as an .Rmd file and accompanying .pdf file. Include all the **relevant** R code and output. With the `echo` option in R markdown, you opt to hide some R code that is not very relevant (but still run it to generate the document).
+
+Always comment on your result whenever it is necessary. For example, in problem 3, display and also comment on the Q-Q plot that you produce
+
+### Reading assignments.
+Read Chapters 2-4, 7 of *Using R for Data Analysis and Graphics*.
+<https://cran.r-project.org/doc/contrib/usingR.pdf>.
+
+### Problems
+1. Use the `system.time` function in R to time the performance of the same task in two different ways:
+
++ Generate a vector of 500,000 random variates from a Normal (0, 1) density and use the `sum` function to calculate their sum.
+
++ Create a variable called `answer` and initialize it to 0. Then, using a `for` loop, do the following steps 500,000 times: generate a single Normal (0, 1) value and add it to sum contained in `answer`.
+
+Besides including the R code and output, compare on the relevant timings for both methods and state which one is more efficient.
+
+2. Use R to do the following:
+
++ Create a matrix called $M$ with the following entires:
+$$
+\left[\begin{array}
+{rrr}
+1 & 3 & 5 \\
+2 & 4 & 6 \\
+3 & 6 & 9
+\end{array}\right].
+$$
++ Create a vector called $v$ with the following entries:
+`17 46 181`.
+
++ Compute and display the product $Mv$ produced by matrix multiplication.
++ Compute and display the transpose of $M$.
++ Display only those elements of $v$ that have values less than 50.
+
+3. Generate a sample of 500 values from a Gamma density with shape parameter 3 and rate parameter 0.5. Produce and display a histogram of your sample. Have a Q-Q plot to check whether the sample comforts with the Gamma distribution.
+
+4. 
++ Use either `help.search` function or just google it to locate a package that contains a function to compute the skewness of a vector of numbers. Make sure that it uses the standard definition of skewness. What is the name of the function, and which package is it in?
+
++ Locate an R function that computes the five-number summary of a vector of numbers. What is the name of the function, and which package is it in?
+
++ Write an R function that does the following:
+    + Accepts one argument: a vector.
+    + Checks whether the vector is numeric.
+    + If not, displays the message `Vector must be numeric` and exist. 
+    + If yes, computes the skewness of the values (after removing any missing values).
+        + If the absolute value of skewness is less than 1, retures a list containing two objects: skewness in an object named `skewness`; a vector consisting of the mean and standard devviation in an object named `dsescstats`.
+        + Otherwise, returns a list containing two objects: skewness in an object named `skewness`; a vector consisting of the five-number summary in an object named `descstats`.
+    + Run your function in R three times, using the following vectors as arguments:
+        + `c("stat", "actuarial", "2019")`
+        + `rnorm(100)`
+        + `rexp(5)`
+    + In the document that you submit for homework, show both the R code and output for the three calls to it.
+
+
+<!-- ```{r cars} -->
+<!-- summary(cars) -->
+<!-- ``` -->
+
+<!-- ## Including Plots -->
+
+<!-- You can also embed plots, for example: -->
+
+<!-- ```{r pressure, echo=FALSE} -->
+<!-- plot(pressure) -->
+<!-- ``` -->
+
+<!-- Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot. -->
